@@ -1,36 +1,26 @@
-<section id="tech-stack" class="py-24 px-6">
+﻿<section id="tech-stack" class="py-20 px-6 scroll-mt-32 lg:scroll-mt-28">
   <div class="max-w-6xl mx-auto">
-    <div class="mb-14">
-      <p class="text-brand-green font-mono text-sm tracking-widest uppercase mb-2">Habilidades</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white">Stack Tecnológica</h2>
+    <div class="mb-12">
+      <p class="text-brand-green font-mono text-sm tracking-widest uppercase mb-2">Stack</p>
+      <h2 class="text-[clamp(1.75rem,3.2vw,2.35rem)] font-bold text-white">Tecnologias</h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div
-        *ngFor="let category of categories"
-        class="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-colors duration-300"
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <article
+        *ngFor="let domain of techDomains"
+        class="rounded-xl border border-gray-800 bg-gray-900/70 p-5"
       >
-        <div class="flex items-center gap-3 mb-6">
-          <span class="text-2xl" aria-hidden="true">{{ category.icon }}</span>
-          <h3 class="text-lg font-bold text-white">{{ category.name }}</h3>
-        </div>
-        <ul class="space-y-3">
-          <li
-            *ngFor="let item of category.items"
-            class="flex items-center justify-between"
+        <h3 class="text-[clamp(0.95rem,1.8vw,1.1rem)] font-semibold text-gray-100 mb-4">{{ domain.name }}</h3>
+        <div class="flex flex-wrap gap-2">
+          <span
+            *ngFor="let item of domain.items"
+            class="text-[clamp(0.78rem,1.3vw,0.92rem)] px-3 py-1.5 rounded-md border border-gray-700 bg-gray-900 text-gray-300"
           >
-            <span class="text-gray-300 font-mono text-sm">{{ item.name }}</span>
-            <span
-              *ngIf="item.level"
-              class="text-xs px-2 py-0.5 rounded-full"
-              [ngClass]="{
-                'bg-brand-green/10 text-brand-green border border-brand-green/20': item.level === 'Avançado',
-                'bg-brand-blue/10 text-brand-blue border border-brand-blue/20': item.level === 'Intermediário',
-                'bg-gray-700/50 text-gray-400 border border-gray-600/50': item.level === 'Básico'
-              }"
-            >{{ item.level }}</span>
-          </li>
-        </ul>
-      </div>
+            {{ item }}
+          </span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
+
