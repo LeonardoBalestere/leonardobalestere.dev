@@ -1,0 +1,16 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  [ngClass]="isScrolled ? 'bg-gray-950/95 backdrop-blur-md border-b border-gray-800 shadow-xl' : 'bg-transparent'"
+>
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#hero" class="font-mono font-bold text-brand-green text-lg hover:text-white transition-colors duration-200">
+      lb.dev
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#projects" class="text-sm text-gray-400 hover:text-white transition-colors duration-200 font-medium">Projetos</a>
+      <a href="#experience" class="text-sm text-gray-400 hover:text-white transition-colors duration-200 font-medium">Experiência</a>
+      <a href="#tech-stack" class="text-sm text-gray-400 hover:text-white transition-colors duration-200 font-medium">Stack</a>
+      <a href="#contact" class="text-sm font-semibold px-4 py-2 border border-brand-green text-brand-green rounded-lg hover:bg-brand-green hover:text-gray-900 transition-all duration-200">Contato</a>
+    </div>
+  </div>
+</nav>
