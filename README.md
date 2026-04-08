@@ -1,59 +1,64 @@
-# leonardobalestere.dev
+# Personal Portfolio - Leonardo Balestere
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+[![Build Status](https://github.com/leonardobalestere/leonardobalestere.github.io/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)](https://github.com/leonardobalestere/leonardobalestere.github.io/actions)
+[![Angular](https://img.shields.io/badge/Angular-17+-DD0031.svg?style=flat&logo=angular&logoColor=white)](https://angular.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Development server
+## 📌 Overview
+This repository contains the source code for my personal portfolio, designed to showcase my expertise as a Software Engineer specializing in scalable backend architectures (.NET) and modern frontend development. 
 
-To start a local development server, run:
+The application is a high-performance Single Page Application (SPA) focused on fast load times, semantic structure, and clean code principles.
 
-```bash
-ng serve
+**Live Version:** [leonardobalestere.dev](https://leonardobalestere.dev)
+
+## 🚀 Tech Stack
+* **Framework:** Angular 
+* **Styling:** Tailwind CSS
+* **Deployment & CI/CD:** GitHub Actions & GitHub Pages
+* **Code Quality:** ESLint, Prettier, and strict TypeScript configurations.
+
+## ⚙️ Local Development
+To run this project locally, ensure you have [Node.js](https://nodejs.org/) and [Angular CLI](https://angular.io/cli) installed.
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/leonardobalestere/leonardobalestere.github.io.git](https://github.com/leonardobalestere/leonardobalestere.github.io.git)
+   cd leonardobalestere.github.io
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   ng serve
+   ```
+   Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## 🏗️ Architecture & Project Structure
+The application follows a strictly modular architecture to ensure maintainability and separation of concerns:
+
+```text
+src/
+ ├── app/
+ │    ├── core/          # Singleton services, interceptors, guards
+ │    ├── shared/        # Reusable UI components, pipes, directives
+ │    ├── features/      # Feature modules (Hero, Projects, Experience, Contact)
+ │    └── app.component.ts
+ ├── assets/             # Static files (images, icons)
+ ├── environments/       # Environment-specific configurations
+ └── styles/             # Global styles and Tailwind directives
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🔄 CI/CD Pipeline
+This project utilizes **GitHub Actions** for continuous integration and continuous deployment. 
+Every push to the `main` branch triggers a workflow that:
+1. Installs dependencies.
+2. Builds the Angular application in production mode (`ng build --configuration production`).
+3. Deploys the static artifacts to the `gh-pages` branch for hosting.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
