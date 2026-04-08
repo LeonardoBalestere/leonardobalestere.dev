@@ -1,0 +1,36 @@
+<section id="tech-stack" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-14">
+      <p class="text-brand-green font-mono text-sm tracking-widest uppercase mb-2">Habilidades</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Stack Tecnológica</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div
+        *ngFor="let category of categories"
+        class="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-gray-600 transition-colors duration-300"
+      >
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-2xl" aria-hidden="true">{{ category.icon }}</span>
+          <h3 class="text-lg font-bold text-white">{{ category.name }}</h3>
+        </div>
+        <ul class="space-y-3">
+          <li
+            *ngFor="let item of category.items"
+            class="flex items-center justify-between"
+          >
+            <span class="text-gray-300 font-mono text-sm">{{ item.name }}</span>
+            <span
+              *ngIf="item.level"
+              class="text-xs px-2 py-0.5 rounded-full"
+              [ngClass]="{
+                'bg-brand-green/10 text-brand-green border border-brand-green/20': item.level === 'Avançado',
+                'bg-brand-blue/10 text-brand-blue border border-brand-blue/20': item.level === 'Intermediário',
+                'bg-gray-700/50 text-gray-400 border border-gray-600/50': item.level === 'Básico'
+              }"
+            >{{ item.level }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
