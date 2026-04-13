@@ -1,15 +1,9 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface TechItem {
+interface TechDomain {
   name: string;
-  level?: string;
-}
-
-interface TechCategory {
-  name: string;
-  icon: string;
-  items: TechItem[];
+  items: string[];
 }
 
 @Component({
@@ -19,43 +13,19 @@ interface TechCategory {
   templateUrl: './tech-stack.component.html',
 })
 export class TechStackComponent {
-  categories: TechCategory[] = [
+  techDomains: TechDomain[] = [
     {
-      name: 'Backend',
-      icon: '⚙️',
-      items: [
-        { name: 'C#', level: 'Avançado' },
-        { name: '.NET 10', level: 'Avançado' },
-        { name: 'ASP.NET Core', level: 'Avançado' },
-        { name: 'SQL Server', level: 'Intermediário' },
-        { name: 'Entity Framework', level: 'Intermediário' },
-        { name: 'Clean Architecture', level: 'Avançado' },
-        { name: 'REST APIs', level: 'Avançado' },
-        { name: 'xUnit', level: 'Intermediário' },
-      ],
+      name: 'Backend & Architecture',
+      items: ['C#', '.NET 10', 'REST APIs'],
     },
     {
       name: 'Frontend',
-      icon: '🎨',
-      items: [
-        { name: 'Angular', level: 'Intermediário' },
-        { name: 'TypeScript', level: 'Intermediário' },
-        { name: 'Tailwind CSS', level: 'Intermediário' },
-        { name: 'HTML5 / CSS3', level: 'Avançado' },
-        { name: 'RxJS', level: 'Básico' },
-      ],
+      items: ['Angular', 'TypeScript', 'Tailwind CSS'],
     },
     {
-      name: 'DevOps & Infraestrutura',
-      icon: '🚀',
-      items: [
-        { name: 'GitHub Actions', level: 'Intermediário' },
-        { name: 'Docker', level: 'Intermediário' },
-        { name: 'Linux / VPS', level: 'Intermediário' },
-        { name: 'Nginx', level: 'Básico' },
-        { name: 'n8n', level: 'Intermediário' },
-        { name: 'Git', level: 'Avançado' },
-      ],
+      name: 'Data & Cloud',
+      items: ['SQL Server', 'Docker', 'Azure', 'Git'],
     },
   ];
 }
+
