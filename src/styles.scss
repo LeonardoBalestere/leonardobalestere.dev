@@ -1,8 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ===== Design tokens (Portfolio Options — opção 2a/2b) ===== */
+:root {
+  --bg: #0b0a10;
+  --surface: #151221;
+  --border: #241e36;
+  --purple: #7c3aed;
+  --purple-hover: #8b5cf6;
+  --purple-light: #a78bfa;
+  --purple-lighter: #c4b5fd;
+  --purple-deep: #4c1d95;
+  --text: #f2f1f7;
+  --text-muted: #9c9aad;
+  --text-faint: #5f5d70;
+  --green: #4ade80;
+  --green-glow: rgba(74, 222, 128, 0.7);
+  --chip-bg: rgba(255, 255, 255, 0.06);
+  --chip-border: rgba(255, 255, 255, 0.1);
+  --ghost-border: rgba(255, 255, 255, 0.16);
+  --nav-bg: rgba(11, 10, 16, 0.92);
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 18px;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root[data-theme='light'] {
+  --bg: #f6f5fa;
+  --surface: #ffffff;
+  --border: #e6e2f2;
+  --purple-light: #6d28d9;
+  --purple-lighter: #5b21b6;
+  --text: #17141f;
+  --text-muted: #5d5a6e;
+  --text-faint: #8f8c9e;
+  --green: #16a34a;
+  --green-glow: rgba(22, 163, 74, 0.45);
+  --chip-bg: rgba(23, 20, 31, 0.04);
+  --chip-border: rgba(23, 20, 31, 0.14);
+  --ghost-border: rgba(23, 20, 31, 0.22);
+  --nav-bg: rgba(246, 245, 250, 0.92);
+}
 
 * {
   box-sizing: border-box;
@@ -13,6 +49,78 @@ html {
 }
 
 body {
-  @apply bg-gray-950 text-gray-100 font-sans;
-  min-height: 100vh;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===== Layout compartilhado ===== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 18px;
+
+  @media (min-width: 768px) {
+    padding-inline: 36px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 56px;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Título de seção com numeração mono ("01 Stack") */
+.section-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  .num {
+    color: var(--purple-light);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 34px;
+    letter-spacing: -1px;
+
+    .num {
+      font-size: 16px;
+      margin-right: 12px;
+    }
+  }
+}
+
+/* Cartão bento base */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.2s ease,
+    background 0.25s ease;
+}
+
+.card--hover:hover {
+  border-color: var(--purple);
 }

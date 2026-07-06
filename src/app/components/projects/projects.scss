@@ -1,0 +1,135 @@
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 36px;
+
+  @media (min-width: 1024px) {
+    gap: 22px;
+    padding-bottom: 64px;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 5fr 5fr 2fr;
+  }
+}
+
+.item {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h3 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .status {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--green);
+    white-space: nowrap;
+
+    &.archived {
+      color: var(--text-muted);
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .link {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--purple-light);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--purple-lighter);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 32px;
+    gap: 14px;
+
+    h3 {
+      font-size: 19px;
+    }
+
+    .status {
+      font-size: 11px;
+    }
+
+    p {
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+
+    .link {
+      font-size: 12px;
+    }
+  }
+}
+
+.more {
+  background: var(--purple);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.2s ease;
+
+  .more-label {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .arrow {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: var(--purple-hover);
+  }
+
+  @media (min-width: 1024px) {
+    padding: 32px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .more-label {
+      font-size: 17px;
+    }
+
+    .arrow {
+      font-size: 26px;
+    }
+  }
+}

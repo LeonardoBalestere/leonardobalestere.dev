@@ -1,0 +1,66 @@
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" (click)="closeMenu()">
+      <span class="logo">LB</span>
+      <span class="path">~/leonardo-balestere</span>
+    </a>
+
+    <nav class="links" aria-label="Seções / Sections">
+      <a href="#stack">{{ t().nav.stack }}</a>
+      <a href="#experience">{{ t().nav.experience }}</a>
+      <a href="#projects">{{ t().nav.projects }}</a>
+      <a href="#contact">{{ t().nav.contact }}</a>
+    </nav>
+
+    <div class="actions">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button
+          type="button"
+          [class.active]="languageService.language() === 'pt'"
+          [attr.aria-pressed]="languageService.language() === 'pt'"
+          (click)="languageService.set('pt')"
+        >
+          PT
+        </button>
+        <button
+          type="button"
+          [class.active]="languageService.language() === 'en'"
+          [attr.aria-pressed]="languageService.language() === 'en'"
+          (click)="languageService.set('en')"
+        >
+          EN
+        </button>
+      </div>
+      <button
+        type="button"
+        class="theme"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="
+          themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+        "
+      >
+        {{ themeService.theme() === 'dark' ? '☀' : '☾' }}
+      </button>
+      <button
+        type="button"
+        class="burger"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  @if (menuOpen()) {
+    <nav class="mobile-menu container" id="mobile-menu" aria-label="Seções / Sections">
+      <a href="#stack" (click)="closeMenu()">{{ t().nav.stack }}</a>
+      <a href="#experience" (click)="closeMenu()">{{ t().nav.experience }}</a>
+      <a href="#projects" (click)="closeMenu()">{{ t().nav.projects }}</a>
+      <a href="#contact" (click)="closeMenu()">{{ t().nav.contact }}</a>
+    </nav>
+  }
+</header>

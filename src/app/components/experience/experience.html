@@ -1,0 +1,15 @@
+<section class="experience container" id="experience">
+  <h2 class="section-title"><span class="num">02</span>{{ t().experience.title }}</h2>
+  <div class="grid">
+    @for (exp of t().experience.items; track exp.period) {
+      <article class="card card--hover item">
+        <span class="period">{{ exp.period }}</span>
+        <h3 class="role">
+          {{ exp.role }}<br />
+          <span class="company">{{ exp.company }}</span>
+        </h3>
+        <p>{{ exp.description }}</p>
+      </article>
+    }
+  </div>
+</section>

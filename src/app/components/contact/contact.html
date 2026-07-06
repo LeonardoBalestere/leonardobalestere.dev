@@ -1,0 +1,19 @@
+<section class="contact-wrap container" id="contact">
+  <div class="panel">
+    <div class="pitch">
+      <h2>
+        {{ t().contact.titleLine1 }}<br class="desktop-br" />
+        {{ t().contact.titleLine2 }}
+      </h2>
+      <p>{{ t().contact.text }}</p>
+    </div>
+    <div class="channels">
+      <a class="email" [href]="'mailto:' + links.email">{{ links.email }}</a>
+      <div class="socials">
+        <a [href]="links.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a [href]="links.github" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <span class="phone">{{ links.phone }}</span>
+    </div>
+  </div>
+</section>

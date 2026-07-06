@@ -1,0 +1,15 @@
+<section class="stack container" id="stack">
+  <h2 class="section-title"><span class="num">01</span>{{ t().stack.title }}</h2>
+  <div class="grid">
+    @for (category of t().stack.categories; track category.label) {
+      <div class="category card--hover" [class.featured]="category.featured">
+        <span class="label">{{ category.label }}</span>
+        <div class="chips">
+          @for (skill of category.skills; track skill) {
+            <span class="chip">{{ skill }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,34 @@
+<section class="hero container" id="top">
+  <div class="card main">
+    <span class="kicker">{{ t().hero.kicker }}</span>
+    <h1>
+      {{ t().hero.titlePre }}<span class="hl">{{ t().hero.titleHighlight }}</span
+      >{{ t().hero.titlePost }}
+    </h1>
+    <p>{{ t().hero.description }}</p>
+    <div class="ctas">
+      <a class="btn-primary" [href]="'mailto:' + links.email">{{ t().hero.ctaPrimary }}</a>
+      <a class="btn-ghost" href="#projects">{{ t().hero.ctaSecondary }}</a>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="card status">
+      <div class="status-head">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="status-title">{{ t().hero.statusTitle }}</span>
+      </div>
+      <p>{{ t().hero.statusText }}</p>
+      <div class="social">
+        <a [href]="links.github" target="_blank" rel="noopener">GitHub ↗</a>
+        <a [href]="links.linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <div class="card education">
+      <span class="kicker">{{ t().hero.educationKicker }}</span>
+      <span class="school">{{ t().hero.school }}</span>
+      <span class="langs">{{ t().hero.languages }}</span>
+    </div>
+  </div>
+</section>

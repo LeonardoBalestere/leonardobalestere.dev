@@ -1,34 +1,16 @@
 import { Component } from '@angular/core';
-import { HeroComponent } from './components/hero/hero.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { ExperienceComponent } from './components/experience/experience.component';
-import { TechStackComponent } from './components/tech-stack/tech-stack.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { Header } from './components/header/header';
+import { Hero } from './components/hero/hero';
+import { Stack } from './components/stack/stack';
+import { Experience } from './components/experience/experience';
+import { Projects } from './components/projects/projects';
+import { Contact } from './components/contact/contact';
+import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    NavbarComponent,
-    HeroComponent,
-    ProjectsComponent,
-    ExperienceComponent,
-    TechStackComponent,
-    ContactComponent,
-  ],
-  template: `
-    <div class="dark">
-      <app-navbar></app-navbar>
-      <main>
-        <app-hero></app-hero>
-        <app-projects></app-projects>
-        <app-experience></app-experience>
-        <app-tech-stack></app-tech-stack>
-        <app-contact></app-contact>
-      </main>
-    </div>
-  `,
+  imports: [Header, Hero, Stack, Experience, Projects, Contact, Footer],
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
-export class AppComponent {}
-
+export class App {}

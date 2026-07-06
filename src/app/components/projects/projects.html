@@ -1,0 +1,23 @@
+<section class="projects container" id="projects">
+  <h2 class="section-title"><span class="num">03</span>{{ t().projects.title }}</h2>
+  <div class="grid">
+    @for (project of t().projects.items; track project.name) {
+      <article class="card card--hover item">
+        <div class="head">
+          <h3>{{ project.name }}</h3>
+          <span class="status" [class.archived]="project.status === 'archived'">
+            {{ project.status === 'active' ? t().projects.statusActive : t().projects.statusArchived }}
+          </span>
+        </div>
+        <p>{{ project.description }}</p>
+        <a class="link" [href]="project.linkUrl" target="_blank" rel="noopener">
+          {{ project.linkLabel }}
+        </a>
+      </article>
+    }
+    <a class="more" [href]="links.github" target="_blank" rel="noopener">
+      <span class="more-label">{{ t().projects.more }}</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
