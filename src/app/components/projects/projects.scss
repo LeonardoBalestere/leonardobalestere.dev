@@ -18,6 +18,7 @@
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: 5fr 5fr 2fr;
+    align-items: start;
   }
 }
 
@@ -196,15 +197,16 @@
 }
 
 .more {
-  background: var(--purple);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  color: #fff;
-  transition: background 0.2s ease;
+  color: var(--text);
+  transition: border-color 0.2s ease;
 
   .more-label {
     font-family: var(--font-heading);
@@ -215,10 +217,11 @@
 
   .arrow {
     font-size: 20px;
+    color: var(--purple-light);
   }
 
   &:hover {
-    background: var(--purple-hover);
+    border-color: var(--purple);
   }
 
   @media (min-width: 1024px) {

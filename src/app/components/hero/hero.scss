@@ -143,6 +143,7 @@
 
   @media (min-width: 1024px) {
     grid-column: span 4;
+    align-self: start;
     gap: 14px;
   }
 }
@@ -155,9 +156,7 @@
   gap: 10px;
 
   @media (min-width: 1024px) {
-    flex: 1;
     padding: 30px;
-    justify-content: center;
   }
 }
 

@@ -117,6 +117,7 @@ export const LINKS = {
   phone: '+55 (34) 99868-0075',
   github: 'https://github.com/LeonardoBalestere',
   linkedin: 'https://www.linkedin.com/in/leonardobalestere/',
+  pocPost: 'https://www.linkedin.com/feed/update/urn:li:activity:7448426681910030336/',
   asyncImport: 'https://github.com/LeonardoBalestere/async-import-service',
   inventory: 'https://github.com/LeonardoBalestere/InventoryManagement-BackEnd',
 };
@@ -140,7 +141,7 @@ export const CONTENT: Record<Language, Content> = {
       kicker: '// backend e full stack',
       titlePre: 'Olá, eu sou o Leonardo, ',
       titleHighlight: 'desenvolvedor .NET',
-      titlePost: ' que desenvolve com IA todos os dias.',
+      titlePost: ' que programa com IA todos os dias.',
       description:
         'Tenho mais de 4 anos em sistemas de crédito, seguros, adquirência e varejo. Meu forte é o backend (C#, APIs REST, SQL Server e Oracle), e também entrego front-end em Angular e React.',
       keywordsLabel: 'Principais tecnologias',
@@ -372,8 +373,8 @@ export const CONTENT: Record<Language, Content> = {
           status: 'archived',
           description:
             'Code review automático com LLM local para os meus Pull Requests (GitHub → n8n → Ollama). A integração funcionou, mas o modelo só resumia o diff, então fiquei com CodeQL e Codecov.',
-          linkLabel: 'post em Destaques no LinkedIn ↗',
-          linkUrl: LINKS.linkedin,
+          linkLabel: 'post no LinkedIn ↗',
+          linkUrl: LINKS.pocPost,
         },
       ],
     },
@@ -388,7 +389,7 @@ export const CONTENT: Record<Language, Content> = {
         {
           title: 'O que testei',
           text: 'Montei um code review automático com LLM local (GitHub → n8n → Ollama) para os meus Pull Requests. A integração funcionou, mas o modelo só resumia o diff, então fiquei com CodeQL e Codecov para segurança e cobertura.',
-          link: { label: 'post em Destaques no LinkedIn ↗', url: LINKS.linkedin },
+          link: { label: 'post no LinkedIn ↗', url: LINKS.pocPost },
         },
         {
           title: 'À vista no código',
@@ -698,8 +699,8 @@ export const CONTENT: Record<Language, Content> = {
           status: 'archived',
           description:
             'Automated code review for my pull requests with a local LLM (GitHub → n8n → Ollama). The integration worked, but the model only summarized the diff, so I kept CodeQL and Codecov.',
-          linkLabel: 'post in LinkedIn Featured ↗',
-          linkUrl: LINKS.linkedin,
+          linkLabel: 'LinkedIn post ↗',
+          linkUrl: LINKS.pocPost,
         },
       ],
     },
@@ -714,7 +715,7 @@ export const CONTENT: Record<Language, Content> = {
         {
           title: 'What I tested',
           text: 'I built an automated code review for my pull requests with a local LLM (GitHub → n8n → Ollama). The integration worked, but the model only summarized the diff, so I kept CodeQL and Codecov for security and coverage.',
-          link: { label: 'post in LinkedIn Featured ↗', url: LINKS.linkedin },
+          link: { label: 'LinkedIn post ↗', url: LINKS.pocPost },
         },
         {
           title: 'Visible in the code',
