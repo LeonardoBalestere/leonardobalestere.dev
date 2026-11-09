@@ -1,0 +1,17 @@
+<section class="ai container" id="ai">
+  <div class="head">
+    <h2 class="section-title"><span class="num">06</span>{{ t().ai.title }}</h2>
+    <p>{{ t().ai.intro }}</p>
+  </div>
+  <div class="grid">
+    @for (item of t().ai.items; track item.title) {
+      <article class="card card--hover item">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+        @if (item.link; as link) {
+          <a [href]="link.url" target="_blank" rel="noopener">{{ link.label }}</a>
+        }
+      </article>
+    }
+  </div>
+</section>

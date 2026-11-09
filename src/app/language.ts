@@ -1,4 +1,5 @@
 import { Injectable, effect, signal } from '@angular/core';
+import { CONTENT } from './data';
 
 export type Language = 'pt' | 'en';
 
@@ -12,6 +13,7 @@ export class LanguageService {
     effect(() => {
       const language = this.language();
       document.documentElement.lang = language === 'pt' ? 'pt-BR' : 'en';
+      document.title = CONTENT[language].meta.title;
       localStorage.setItem(STORAGE_KEY, language);
     });
   }

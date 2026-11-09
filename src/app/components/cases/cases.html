@@ -1,0 +1,22 @@
+<section class="cases container" id="cases">
+  <div class="head">
+    <h2 class="section-title"><span class="num">03</span>{{ t().cases.title }}</h2>
+    <p>{{ t().cases.intro }}</p>
+  </div>
+  <div class="grid">
+    @for (item of t().cases.items; track item.title) {
+      <article class="card card--hover item">
+        <span class="company">{{ item.company }}</span>
+        <h3>{{ item.title }}</h3>
+        <dl>
+          <dt>{{ t().cases.problemLabel }}</dt>
+          <dd>{{ item.problem }}</dd>
+          <dt>{{ t().cases.actionLabel }}</dt>
+          <dd>{{ item.action }}</dd>
+          <dt>{{ t().cases.resultLabel }}</dt>
+          <dd class="result">{{ item.result }}</dd>
+        </dl>
+      </article>
+    }
+  </div>
+</section>

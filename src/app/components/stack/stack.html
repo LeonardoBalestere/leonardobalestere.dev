@@ -1,5 +1,8 @@
 <section class="stack container" id="stack">
-  <h2 class="section-title"><span class="num">01</span>{{ t().stack.title }}</h2>
+  <div class="head">
+    <h2 class="section-title"><span class="num">07</span>{{ t().stack.title }}</h2>
+    <p>{{ t().stack.legend }}</p>
+  </div>
   <div class="grid">
     @for (category of t().stack.categories; track category.label) {
       <div class="category card--hover" [class.featured]="category.featured">
@@ -7,6 +10,9 @@
         <div class="chips">
           @for (skill of category.skills; track skill) {
             <span class="chip">{{ skill }}</span>
+          }
+          @for (skill of category.projectSkills; track skill) {
+            <span class="chip chip--project">{{ skill }}</span>
           }
         </div>
       </div>

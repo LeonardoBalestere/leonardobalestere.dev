@@ -1,5 +1,36 @@
 <section class="projects container" id="projects">
-  <h2 class="section-title"><span class="num">03</span>{{ t().projects.title }}</h2>
+  <h2 class="section-title"><span class="num">05</span>{{ t().projects.title }}</h2>
+  <article class="card card--hover featured-project">
+    <div class="head">
+      <div>
+        <span class="tag">{{ t().projects.featured.tag }}</span>
+        <h3>{{ t().projects.featured.name }}</h3>
+      </div>
+      <span class="status">{{ t().projects.statusActive }}</span>
+    </div>
+    <p>{{ t().projects.featured.description }}</p>
+    <div class="columns">
+      <div>
+        <h4>{{ t().projects.featured.flowTitle }}</h4>
+        <ol>
+          @for (step of t().projects.featured.flow; track step) {
+            <li>{{ step }}</li>
+          }
+        </ol>
+      </div>
+      <div>
+        <h4>{{ t().projects.featured.pointsTitle }}</h4>
+        <ul>
+          @for (point of t().projects.featured.points; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    <a class="link" [href]="t().projects.featured.linkUrl" target="_blank" rel="noopener">
+      {{ t().projects.featured.linkLabel }}
+    </a>
+  </article>
   <div class="grid">
     @for (project of t().projects.items; track project.name) {
       <article class="card card--hover item">

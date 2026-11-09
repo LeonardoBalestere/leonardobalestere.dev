@@ -5,10 +5,13 @@
       <span class="path">~/leonardo-balestere</span>
     </a>
 
-    <nav class="links" aria-label="Seções / Sections">
-      <a href="#stack">{{ t().nav.stack }}</a>
+    <nav class="links" [attr.aria-label]="t().nav.sectionsLabel">
+      <a href="#about">{{ t().nav.about }}</a>
+      <a href="#cases">{{ t().nav.cases }}</a>
       <a href="#experience">{{ t().nav.experience }}</a>
       <a href="#projects">{{ t().nav.projects }}</a>
+      <a href="#ai">{{ t().nav.ai }}</a>
+      <a href="#stack">{{ t().nav.stack }}</a>
       <a href="#contact">{{ t().nav.contact }}</a>
     </nav>
 
@@ -36,7 +39,7 @@
         class="theme"
         (click)="themeService.toggle()"
         [attr.aria-label]="
-          themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+          themeService.theme() === 'dark' ? t().nav.themeToLight : t().nav.themeToDark
         "
       >
         {{ themeService.theme() === 'dark' ? '☀' : '☾' }}
@@ -56,10 +59,13 @@
   </div>
 
   @if (menuOpen()) {
-    <nav class="mobile-menu container" id="mobile-menu" aria-label="Seções / Sections">
-      <a href="#stack" (click)="closeMenu()">{{ t().nav.stack }}</a>
+    <nav class="mobile-menu container" id="mobile-menu" [attr.aria-label]="t().nav.sectionsLabel">
+      <a href="#about" (click)="closeMenu()">{{ t().nav.about }}</a>
+      <a href="#cases" (click)="closeMenu()">{{ t().nav.cases }}</a>
       <a href="#experience" (click)="closeMenu()">{{ t().nav.experience }}</a>
       <a href="#projects" (click)="closeMenu()">{{ t().nav.projects }}</a>
+      <a href="#ai" (click)="closeMenu()">{{ t().nav.ai }}</a>
+      <a href="#stack" (click)="closeMenu()">{{ t().nav.stack }}</a>
       <a href="#contact" (click)="closeMenu()">{{ t().nav.contact }}</a>
     </nav>
   }

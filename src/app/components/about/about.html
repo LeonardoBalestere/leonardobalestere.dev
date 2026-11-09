@@ -1,0 +1,18 @@
+<section class="about container" id="about">
+  <h2 class="section-title"><span class="num">02</span>{{ t().about.title }}</h2>
+  <div class="grid">
+    <div class="card story">
+      @for (paragraph of t().about.paragraphs; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+    <dl class="card facts">
+      @for (fact of t().about.facts; track fact.label) {
+        <div class="fact">
+          <dt>{{ fact.label }}</dt>
+          <dd>{{ fact.value }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>
