@@ -114,7 +114,6 @@ export interface Content {
 
 export const LINKS = {
   email: 'devbalestere@gmail.com',
-  phone: '+55 (34) 99868-0075',
   github: 'https://github.com/LeonardoBalestere',
   linkedin: 'https://www.linkedin.com/in/leonardobalestere/',
   pocPost: 'https://www.linkedin.com/feed/update/urn:li:activity:7448426681910030336/',
