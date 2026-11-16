@@ -1,0 +1,77 @@
+<h2 class="title">
+  {{ t().dashboard.title }}
+  <span class="aside">{{ t().dashboard.updated }} · {{ updatedAgo() }}</span>
+</h2>
+
+<div class="kpis">
+  <div class="card kpi">
+    <span class="label">{{ t().dashboard.activeJobs }}</span>
+    <span class="value">{{ activeJobs() }}</span>
+    <span class="delta up">{{ t().dashboard.newToday(newToday()) }}</span>
+  </div>
+  @if (store.summary(); as summary) {
+    <div class="card kpi">
+      <span class="label">{{ t().dashboard.applications }}</span>
+      <span class="value">{{ summary.applications30d }}</span>
+      <span class="delta" [class.up]="summary.applicationsDelta > 0">
+        {{ t().dashboard.applicationsDelta(summary.applicationsDelta) }}
+      </span>
+    </div>
+    <div class="card kpi">
+      <span class="label">{{ t().dashboard.responseRate }}</span>
+      <span class="value">{{ summary.responseRate | percent: '1.0-0' }}</span>
+      <span class="delta">{{ t().dashboard.responseRateHint }}</span>
+    </div>
+  }
+  <div class="card kpi">
+    <span class="label">{{ t().dashboard.interviews }}</span>
+    <span class="value">{{ interviews().length | number }}</span>
+    <span class="delta">
+      @if (nextInterview(); as next) {
+        {{ t().dashboard.nextInterview(next) }}
+      } @else {
+        {{ t().dashboard.noInterview }}
+      }
+    </span>
+  </div>
+</div>
+
+@if (store.summary(); as summary) {
+  <div class="row wide">
+    <section class="card panel">
+      <h3>
+        {{ t().dashboard.conversionTitle }}<small>{{ t().dashboard.conversionHint }}</small>
+      </h3>
+      <app-stage-conversion-chart [data]="summary.conversion" />
+    </section>
+    <section class="card panel">
+      <h3>
+        {{ t().dashboard.channelTitle }}<small>{{ t().dashboard.channelHint }}</small>
+      </h3>
+      <app-channel-response-chart [data]="summary.responseByChannel" />
+    </section>
+  </div>
+
+  <div class="row thirds">
+    <section class="card panel">
+      <h3>
+        {{ t().dashboard.fitTitle }}<small>{{ t().dashboard.fitHint }}</small>
+      </h3>
+      <app-fit-comparison [fit]="summary.fit" />
+    </section>
+    <section class="card panel">
+      <h3>
+        {{ t().dashboard.dailyTitle }}
+        <small>{{ t().dashboard.dailyHint(summary.newPerDay.length) }}</small>
+      </h3>
+      <app-daily-new-chart [data]="summary.newPerDay" />
+    </section>
+    <section class="card panel">
+      <h3>
+        {{ t().dashboard.coverageTitle }}
+        <small>{{ t().dashboard.coverageHint(summary.coverage.length) }}</small>
+      </h3>
+      <app-cv-coverage [data]="summary.coverage" />
+    </section>
+  </div>
+}
