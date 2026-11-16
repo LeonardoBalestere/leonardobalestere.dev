@@ -1,0 +1,84 @@
+<h2 class="title">
+  {{ t().kanban.title }}
+  <span class="aside">{{ t().kanban.hint }}</span>
+</h2>
+
+<div class="toolbar">
+  <input
+    class="field search"
+    type="search"
+    [placeholder]="t().kanban.search"
+    [attr.aria-label]="t().kanban.searchLabel"
+    [value]="query()"
+    (input)="onSearch($event)"
+  />
+  <select class="field" [attr.aria-label]="t().job.channel" (change)="onChannel($event)">
+    <option value="">{{ t().kanban.allChannels }}</option>
+    @for (channel of channels(); track channel) {
+      <option [value]="channel" [selected]="channel === this.channel()">{{ channel }}</option>
+    }
+  </select>
+  <select class="field" aria-label="Fit" (change)="onMinFit($event)">
+    @for (fit of fitOptions; track fit) {
+      <option [value]="fit" [selected]="fit === minFit()">{{ t().kanban.minFit(fit) }}</option>
+    }
+  </select>
+  <select class="field" [attr.aria-label]="t().kanban.sortByFit" (change)="onSort($event)">
+    <option value="fit" [selected]="sort() === 'fit'">{{ t().kanban.sortByFit }}</option>
+    <option value="date" [selected]="sort() === 'date'">{{ t().kanban.sortByDate }}</option>
+  </select>
+  <span class="count">{{ t().kanban.count(filtered().length) }}</span>
+</div>
+
+<div class="board">
+  @for (column of columns(); track column.stage) {
+    <section
+      class="column"
+      [class.over]="overStage() === column.stage"
+      [attr.aria-label]="t().stages[column.stage]"
+      (dragover)="onDragOver($event, column.stage)"
+      (dragleave)="overStage.set(null)"
+      (drop)="onDrop($event, column.stage)"
+    >
+      <h3>
+        <span class="swatch" [style.background]="colors[column.stage]"></span>
+        {{ t().stages[column.stage] }}
+        <span class="n">{{ column.jobs.length }}</span>
+      </h3>
+      <div class="cards">
+        @for (job of column.jobs; track job.id) {
+          <app-job-card
+            draggable="true"
+            [job]="job"
+            [late]="store.isLate(job)"
+            [highlight]="store.highlightLate()"
+            (dragstart)="onDragStart($event, job)"
+            (dragend)="onDragEnd()"
+            (open)="selectedId.set(job.id)"
+          />
+        } @empty {
+          <p class="empty">{{ t().kanban.emptyColumn }}</p>
+        }
+      </div>
+    </section>
+  }
+</div>
+
+@if (selected(); as job) {
+  <app-job-drawer
+    [job]="job"
+    (closed)="selectedId.set(null)"
+    (stageChange)="requestMove(job, $event)"
+    (notesChange)="saveNotes(job, $event)"
+  />
+}
+
+@if (pendingDiscard(); as job) {
+  <app-discard-dialog
+    [job]="job"
+    (confirmed)="confirmDiscard($event)"
+    (cancelled)="pendingDiscard.set(null)"
+  />
+}
+
+<div class="toast" [class.show]="toast()" role="status" aria-live="polite">{{ toast() }}</div>

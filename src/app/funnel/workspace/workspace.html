@@ -1,0 +1,57 @@
+<main class="container container--wide workspace">
+  <div class="head">
+    <div>
+      <span class="mono-kicker">// {{ today() }}</span>
+      <h1>{{ greeting() }}, Leonardo</h1>
+      @if (store.summary(); as summary) {
+        <p class="meta">
+          <span class="live-dot"></span>
+          {{ t().workspace.lastRun(lastRunTime()) }} ·
+          <b>{{ t().workspace.newJobs(summary.lastRun.newJobs) }}</b> ·
+          {{ t().workspace.pendingTerms(summary.lastRun.pendingTerms) }}
+        </p>
+      }
+    </div>
+    <div class="head-actions">
+      <button type="button" class="btn btn-ghost btn-sm" disabled [title]="t().workspace.soon">
+        {{ t().workspace.curation }}
+        @if (store.summary(); as summary) {
+          <span class="badge">{{ summary.lastRun.pendingTerms }}</span>
+        }
+      </button>
+      <button type="button" class="btn btn-ghost btn-sm" disabled [title]="t().workspace.soon">
+        ⚙ {{ t().workspace.reminders }}
+      </button>
+      <button type="button" class="btn btn-primary btn-sm" disabled [title]="t().workspace.soon">
+        {{ t().workspace.newJob }}
+      </button>
+    </div>
+  </div>
+
+  @if (store.lateJobs().length) {
+    <div class="alert" role="status">
+      <span class="icon" aria-hidden="true">⏰</span>
+      <p>
+        <b>{{ t().workspace.lateAlert(store.lateJobs().length, store.returnDays()) }}</b>
+        {{ t().workspace.nextEmail(nextEmail()) }}
+      </p>
+      <button type="button" class="btn btn-ghost btn-sm" (click)="highlightLate()">
+        {{ t().workspace.highlight }}
+      </button>
+    </div>
+  }
+
+  <nav class="tabs" [attr.aria-label]="t().workspace.tabsLabel">
+    <a routerLink="dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">
+      {{ t().workspace.dashboard }}
+    </a>
+    <a routerLink="kanban" routerLinkActive="active" ariaCurrentWhenActive="page">
+      {{ t().workspace.kanban }}
+      @if (store.newJobsCount()) {
+        <span class="count">{{ store.newJobsCount() }}</span>
+      }
+    </a>
+  </nav>
+
+  <router-outlet />
+</main>

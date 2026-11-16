@@ -2,6 +2,7 @@
 :root {
   --bg: #0b0a10;
   --surface: #151221;
+  --surface-2: #1b172a;
   --border: #241e36;
   --purple: #7c3aed;
   --purple-hover: #8b5cf6;
@@ -13,6 +14,9 @@
   --text-faint: #5f5d70;
   --green: #4ade80;
   --green-glow: rgba(74, 222, 128, 0.7);
+  --amber: #fbbf24;
+  --red: #f87171;
+  --blue: #60a5fa;
   --chip-bg: rgba(255, 255, 255, 0.06);
   --chip-border: rgba(255, 255, 255, 0.1);
   --ghost-border: rgba(255, 255, 255, 0.16);
@@ -26,6 +30,7 @@
 :root[data-theme='light'] {
   --bg: #f6f5fa;
   --surface: #ffffff;
+  --surface-2: #f3f1fa;
   --border: #e6e2f2;
   --purple-light: #6d28d9;
   --purple-lighter: #5b21b6;
@@ -34,6 +39,9 @@
   --text-faint: #8f8c9e;
   --green: #16a34a;
   --green-glow: rgba(22, 163, 74, 0.45);
+  --amber: #b45309;
+  --red: #dc2626;
+  --blue: #2563eb;
   --chip-bg: rgba(23, 20, 31, 0.04);
   --chip-border: rgba(23, 20, 31, 0.14);
   --ghost-border: rgba(23, 20, 31, 0.22);
@@ -80,6 +88,10 @@ a {
   }
 }
 
+.container--wide {
+  max-width: 1440px;
+}
+
 section[id] {
   scroll-margin-top: 80px;
 }
@@ -123,4 +135,109 @@ section[id] {
 
 .card--hover:hover {
   border-color: var(--purple);
+}
+
+/* ===== Botões pílula (rota /funnel) ===== */
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: var(--purple);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: var(--purple-hover);
+  }
+}
+
+.btn-ghost {
+  border-color: var(--ghost-border);
+  font-weight: 600;
+
+  &:hover:not(:disabled) {
+    border-color: var(--purple-light);
+  }
+}
+
+.btn-sm {
+  padding: 7px 14px;
+  font-size: 12px;
+}
+
+.mono-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--purple-light);
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green-glow);
+}
+
+/* Campos de formulário em pílula */
+.field {
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+
+  &:focus-visible {
+    border-color: var(--purple);
+  }
+}
+
+select.field {
+  padding-right: 30px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-faint) 50%),
+    linear-gradient(135deg, var(--text-faint) 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) 50%,
+    calc(100% - 11px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+textarea.field {
+  width: 100%;
+  min-height: 90px;
+  border-radius: 12px;
+  resize: vertical;
 }

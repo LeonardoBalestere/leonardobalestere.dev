@@ -1,0 +1,46 @@
+<header class="topbar">
+  <div class="container container--wide inner">
+    <a class="brand" routerLink="/funnel">
+      <span class="logo">LB</span>
+      <!-- prettier-ignore -->
+      <span class="path">~/leonardo-balestere/<b>funnel</b>@if (section()) {/<b>{{ section() }}</b>}</span>
+    </a>
+
+    <div class="actions">
+      <a class="back" routerLink="/">← {{ t().topbar.portfolio }}</a>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button
+          type="button"
+          [class.active]="languageService.language() === 'pt'"
+          [attr.aria-pressed]="languageService.language() === 'pt'"
+          (click)="languageService.set('pt')"
+        >
+          PT
+        </button>
+        <button
+          type="button"
+          [class.active]="languageService.language() === 'en'"
+          [attr.aria-pressed]="languageService.language() === 'en'"
+          (click)="languageService.set('en')"
+        >
+          EN
+        </button>
+      </div>
+      <button
+        type="button"
+        class="theme"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="
+          themeService.theme() === 'dark' ? t().topbar.themeToLight : t().topbar.themeToDark
+        "
+      >
+        {{ themeService.theme() === 'dark' ? '☀' : '☾' }}
+      </button>
+      @if (section() !== 'login') {
+        <a class="btn btn-ghost btn-sm" routerLink="/funnel/login">{{ t().topbar.signIn }}</a>
+      }
+    </div>
+  </div>
+</header>
+
+<router-outlet />

@@ -1,0 +1,119 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.logo {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.path {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+
+  b {
+    color: var(--purple-light);
+    font-weight: 500;
+  }
+
+  @media (min-width: 640px) {
+    display: inline;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @media (min-width: 1024px) {
+    gap: 18px;
+  }
+}
+
+.back {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text);
+  }
+}
+
+.lang {
+  display: flex;
+  border: 1px solid var(--ghost-border);
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 11px;
+
+  button {
+    appearance: none;
+    border: 0;
+    background: none;
+    padding: 5px 10px;
+    font: inherit;
+    color: var(--text-muted);
+    cursor: pointer;
+
+    &.active {
+      background: var(--text);
+      color: var(--bg);
+      font-weight: 700;
+      cursor: default;
+    }
+  }
+}
+
+.theme {
+  appearance: none;
+  background: none;
+  border: 1px solid var(--ghost-border);
+  border-radius: 6px;
+  padding: 4px 11px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text);
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--purple-light);
+  }
+}
